@@ -75,29 +75,30 @@ extension MyList {
         }
     } // equals
 
-    func isEmpty<A>() -> Bool{
-        return true;
+    func isEmpty(_ stub: A) -> A{
+        return stub;
     }
 
-    func append<B>() -> Void{
+    func append(_ filler: A) -> A{
+        return filler;
+    }
+
+    func length(_ idk: A) -> A{
+        return idk;
+    }
+
+    func filter(_ anotherStub: A) -> A{
+        return anotherStub;
+    }
+
+    func contains(_ lastOne: A) -> A{
+        return lastOne;
+    }
+
+    func sum(zero: A, add: (A, A) -> A) -> A {
+        return ;
+    }
         
-    }
-
-    func length<C>() -> Int{
-        return 0;
-    }
-
-    func filter<D>() -> Void{
-        
-    }
-
-    func contains<E>() -> Void{
-        
-    }
-
-    func sum<F>() -> Int{
-        return 0;
-    }
 } // extension MyList
 
 // This should be a method, but we can't do this because of a bug in 
