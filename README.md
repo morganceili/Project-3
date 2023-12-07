@@ -1,0 +1,1 @@
+Program in Swift implemented for my COMP 333 class at CSUN. Test suite and skeleton code was provided. I implemented functions `isEmpty`, `append`, `length`, `filter`, `contains`, and `sum`. 
