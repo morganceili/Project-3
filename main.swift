@@ -133,9 +133,8 @@ extension MyList {
         switch self{
             case .empty:
                 return 0;
-            case let .cons(head, tail):
-                return ;
-        }
+                
+                        }
     }
         
 } // extension MyList
