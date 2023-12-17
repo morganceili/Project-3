@@ -75,28 +75,67 @@ extension MyList {
         }
     } // equals
 
-    func isEmpty(_ stub: A) -> A{
-        return stub;
+    func isEmpty() -> Bool{
+        switch self{
+            case .empty:
+                return true;
+            case .cons:
+                return false;
+        }
     }
 
-    func append(_ filler: A) -> A{
-        return filler;
+    func append(other: MyList<A>) -> MyList<A>{
+        switch self{
+            case .empty:
+                return other;
+            case let .cons(head, tail):
+                return MyList.cons(head, tail.append(other: other));
+        }
     }
 
-    func length(_ idk: A) -> A{
-        return idk;
+    func length() -> Int{
+        switch self{
+            case .empty:
+                return 0;
+            case let .cons(_, tail):
+                return 1 + tail.length();
+        }
     }
 
-    func filter(_ anotherStub: A) -> A{
-        return anotherStub;
+    func filter(predicate: (A) -> Bool) -> MyList<A>{
+        switch self{
+            case .empty:
+                return self;
+            case let .cons(head, tail):
+                if(predicate(head)){
+                    return MyList.cons(head, tail.filter(predicate: predicate));
+                }
+                else{
+                    return tail.filter(predicate: predicate);
+                }
+        }
     }
 
-    func contains(_ lastOne: A) -> A{
-        return lastOne;
+    func contains(target: A, compare: (A, A) -> Bool) -> Bool{
+        switch self{
+            case .empty:
+                return false;
+            case let .cons(head, tail):
+                if(compare(head, target)){
+                    return true;
+                } else{
+                    return tail.contains(target: target, compare: compare);
+                }
+        }
     }
 
-    func sum(zero: A, add: (A, A) -> A) -> A {
-        return ;
+    func sum(zero: A, _: (A,A) -> A) -> A {
+        switch self{
+            case .empty:
+                return 0;
+            case let .cons(head, tail):
+                return ;
+        }
     }
         
 } // extension MyList
