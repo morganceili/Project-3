@@ -129,12 +129,12 @@ extension MyList {
         }
     }
 
-    func sum(zero: A, _: (A,A) -> A) -> A {
+    func sum(zero: A, add: (A,A) -> A) -> A {
         switch self{
             case .empty:
-                return 0;
+                return zero; //returning parameter zero, not value 0
             case let .cons(head, tail):
-                return tail.sum(zero: zero, something: something(head, tail)); 
+                return add(head, tail.sum(zero: zero, add: add)); 
         } 
     }
         
