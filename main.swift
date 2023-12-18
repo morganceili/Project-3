@@ -133,8 +133,9 @@ extension MyList {
         switch self{
             case .empty:
                 return 0;
-                
-                        }
+            case let .cons(head, tail):
+                return tail.sum(zero: zero, something: something(head, tail)); 
+        } 
     }
         
 } // extension MyList
